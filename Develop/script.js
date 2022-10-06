@@ -6,10 +6,27 @@ currentDay.textContent = theTime;
 
 var discriptionBox = $(".description");
 var saveBtn = $('.saveBtn');
+var hour = $('.hour');
+
+var currentHour = moment().hour();
+console.log(currentHour);
 
 
-// var blockOn
+var timesObject = {nine: $("#9"), ten: $("#10"), eleven:$("#11"), twelve: $("#12"), thirteen: $("#13"), fourteen: $("#14"), fifteen: $("#15"), sixteen: $("#16"), seventee: $("#17")};
 
+function changeColor() {
+    for (var i = 9; i < 18; i++) {
+        if (i < currentHour) {
+            $("#" + i).addClass("past");
+        } else if (i === currentHour) {
+            $("#" + i).addClass("present");
+        } else {
+            $("#" + i).addClass("future");
+        }
+    }
+}
+
+changeColor();
 //create fillable forms
 //if a task takes place in the past, turn itpink
 //if a task takes place in the present, turn it red
